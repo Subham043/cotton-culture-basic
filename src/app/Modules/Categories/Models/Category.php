@@ -32,7 +32,7 @@ class Category extends Model
     protected function publishStatusType(): Attribute
     {
         return new Attribute(
-            get: fn () => PublishStatusEnum::getValue($this->userType),
+            get: fn () => PublishStatusEnum::getValue($this->publish_status),
         );
     }
 
