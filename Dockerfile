@@ -20,6 +20,8 @@ RUN mkdir -p /var/www/html
 
 WORKDIR /var/www/html
 
+COPY ./src /var/www/html
+
 RUN chown -R www-data:www-data /var/www/html
 
 COPY --from=composer:latest /usr/bin/composer /usr/local/bin/composer
