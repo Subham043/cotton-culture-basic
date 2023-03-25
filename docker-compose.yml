@@ -1,38 +1,41 @@
 version: '3'
 
 networks:
-  laravel:
+  cotton_culture_laravel:
+
 
 services:
-  nginx: 
-    image: nginx:stable-alpine
+  app:
     container_name: cotton_culture_nginx
+    build:
+      context: ./dockerfiles
+      dockerfile: nginx.dockerfile
+      args:
+        - UID=${UID:-1000}
+        - GID=${GID:-1000}
     ports:
       - "8085:80"
     volumes:
-      - ./src:/var/www/html
-      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+      - ./src:/var/www/html:delegated
     depends_on:
       - php
       - mysql
     networks:
-      - laravel
+      - cotton_culture_laravel
 
   mysql:
     image: mariadb:10.5.8
     container_name: cotton_culture_mysql
     restart: unless-stopped
-    # command: --default-authentication-plugin=mysql_native_password
     tty: true
     ports:
-      - "4306:3306"
+      - "5306:3306"
     volumes:
       - ./mysql:/var/lib/mysql
     env_file:
       - .env
-
     networks:
-      - laravel
+      - cotton_culture_laravel
 
   phpmyadmin:
     container_name: cotton_culture_admin
@@ -46,24 +49,30 @@ services:
     env_file:
       - .env
     networks:
-      laravel:
+      - cotton_culture_laravel
 
   php:
-    build: 
-      context: .
-      dockerfile: Dockerfile
+    build:
+      context: ./dockerfiles
+      dockerfile: php.dockerfile
+      args:
+        - UID=${UID:-1000}
+        - GID=${GID:-1000}
     container_name: cotton_culture_php
-    volumes:
-      - ./src:/var/www/html
     ports:
       - "9002:9000"
+    volumes:
+      - ./src:/var/www/html:delegated
     networks:
-      - laravel
+      - cotton_culture_laravel
 
   composer:
     build:
-      context: .
-      dockerfile: Dockerfile
+      context: ./dockerfiles
+      dockerfile: php.dockerfile
+      args:
+        - UID=${UID:-1000}
+        - GID=${GID:-1000}
     container_name: cotton_culture_composer
     volumes:
       - ./src:/var/www/html
@@ -71,17 +80,20 @@ services:
       - php
     entrypoint: [ 'composer', '--ignore-platform-reqs' ]
     networks:
-      - laravel
+      - cotton_culture_laravel
 
   artisan:
     build:
-      context: .
-      dockerfile: Dockerfile
+      context: ./dockerfiles
+      dockerfile: php.dockerfile
+      args:
+        - UID=${UID:-1000}
+        - GID=${GID:-1000}
     container_name: cotton_culture_artisan
     volumes:
-      - ./src:/var/www/html
+      - ./src:/var/www/html:delegated
     depends_on:
       - mysql
     entrypoint: [ 'php', '/var/www/html/artisan' ]
     networks:
-      - laravel
+      - cotton_culture_laravel
