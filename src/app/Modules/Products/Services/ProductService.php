@@ -35,7 +35,7 @@ class ProductService
             })
             ->orderBy('id', 'DESC')->paginate($limit);
         }
-        return $this->productModel::with('Category')->orderBy('id', 'DESC')->paginate($limit);
+        return $this->productModel->with('Category')->orderBy('id', 'DESC')->paginate($limit);
     }
 
     public function getById(Int $id): Product

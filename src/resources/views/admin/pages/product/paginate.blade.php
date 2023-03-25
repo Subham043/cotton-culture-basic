@@ -47,7 +47,7 @@
                                         @foreach ($data->items() as $item)
                                         <tr>
                                             <td class="customer_name">{{$item->name}}</td>
-                                            <td class="customer_name">{{$item->category->name}}</td>
+                                            <td class="customer_name">{{$item->Category->name}}</td>
                                             @if($item->publish_status == 1)
                                             <td class="status"><span class="badge badge-soft-success text-uppercase">Active</span></td>
                                             @else

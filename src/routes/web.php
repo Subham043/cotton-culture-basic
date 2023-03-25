@@ -1,6 +1,10 @@
 <?php
 
-use App\Modules\Projects\Controllers\Main\ProjectViewMainController;
+use App\Modules\Home\Controllers\AboutController;
+use App\Modules\Home\Controllers\ContactController;
+use App\Modules\Home\Controllers\HomeController;
+use App\Modules\Home\Controllers\ProductController;
+use App\Modules\Home\Controllers\ProductsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,4 +19,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::get('/project', [ProjectViewMainController::class, 'get', 'as' => 'project_view_main.get'])->name('project_view_main.get');
+Route::get('/', [HomeController::class, 'get', 'as' => 'home.get'])->name('home.get');
+Route::get('/about', [AboutController::class, 'get', 'as' => 'about.get'])->name('about.get');
+Route::get('/contact', [ContactController::class, 'get', 'as' => 'contact.get'])->name('contact.get');
+
+Route::prefix('/products')->group(function () {
+    Route::get('/', [ProductsController::class, 'get', 'as' => 'prodcucts.get'])->name('prodcucts.get');
+    Route::get('/{id}', [ProductController::class, 'get', 'as' => 'prodcuct.get'])->name('prodcuct.get');
+});

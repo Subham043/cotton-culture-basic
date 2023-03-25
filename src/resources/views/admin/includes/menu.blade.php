@@ -15,7 +15,7 @@
                     <!-- Light Logo-->
                     <a href="{{route('profile.get')}}" class="logo logo-light">
                         <span class="logo-sm">
-                            <img src="{{ asset('admin/images/logo.png')}}" alt="" height="30">
+                            <img src="{{ asset('admin/images/logo.png')}}" alt="" height="25">
                         </span>
                         <span class="logo-lg">
                             <img src="{{ asset('admin/images/logo.png') }}" alt="" height="60">

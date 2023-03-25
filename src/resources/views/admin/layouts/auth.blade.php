@@ -2,7 +2,12 @@
 <html lang="en" data-layout="vertical" data-topbar="light" data-sidebar="dark" data-sidebar-size="sm-hover">
 
     @include('admin.includes.common_head')
-
+    <style>
+        .auth-logo img{
+            height: 200px;
+            object-fit: contain
+        }
+    </style>
     <body>
 
         <div class="auth-page-wrapper pt-5">
