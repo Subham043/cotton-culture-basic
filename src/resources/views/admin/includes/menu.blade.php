@@ -34,6 +34,11 @@
                         <ul class="navbar-nav" id="navbar-nav">
                             <li class="menu-title"><span data-key="t-menu">Menu</span></li>
                             <li class="nav-item">
+                                <a class="nav-link menu-link {{strpos(url()->current(),route('enquiry_list.get')) !== false ? 'active' : ''}}" href="{{route('enquiry_list.get')}}">
+                                    <i class="ri-chat-smile-line"></i> <span data-key="t-widgets">Enquiries</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
                                 <a class="nav-link menu-link {{strpos(url()->current(),route('category_list.get')) !== false ? 'active' : ''}}" href="{{route('category_list.get')}}">
                                     <i class="ri-folders-line"></i> <span data-key="t-widgets">Categories</span>
                                 </a>

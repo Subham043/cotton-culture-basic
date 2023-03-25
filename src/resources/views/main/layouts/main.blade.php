@@ -1,21 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<!-- Mirrored from themesground.com/altima/altima-demo/V2/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 24 Mar 2023 09:28:11 GMT -->
-
 <head>
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <!--[if IE]>
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<![endif]-->
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
 
     <!-- Favicons Icon -->
-    <link rel="icon" href="{{ asset('assets/images/favicon.png') }}" type="image/x-icon" />
-    <link rel="shortcut icon" href="{{ asset('assets/images/favicon.png') }}" type="image/x-icon" />
-    <title>Beauty premium HTML5 &amp; CSS3 template</title>
+    <link rel="icon" href="{{ asset('assets/images/logo.png') }}" type="image/x-icon" />
+    <link rel="shortcut icon" href="{{ asset('assets/images/logo.png') }}" type="image/x-icon" />
+    <title>COTTON CULTURE</title>
 
     <!-- Mobile Specific -->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">

@@ -10,6 +10,8 @@ use App\Modules\Categories\Controllers\CategoryCreateController;
 use App\Modules\Categories\Controllers\CategoryDeleteController;
 use App\Modules\Categories\Controllers\CategoryPaginateController;
 use App\Modules\Categories\Controllers\CategoryUpdateController;
+use App\Modules\Enquiries\Controllers\EnquiryDeleteController;
+use App\Modules\Enquiries\Controllers\EnquiryPaginateController;
 use App\Modules\Products\Controllers\ProductCreateController;
 use App\Modules\Products\Controllers\ProductDeleteController;
 use App\Modules\Products\Controllers\ProductImageCreateController;
@@ -88,6 +90,11 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/delete/{id}', [CategoryDeleteController::class, 'get', 'as' => 'category_delete.get'])->name('category_delete.get');
         Route::get('/update/{id}', [CategoryUpdateController::class, 'get', 'as' => 'category_update.get'])->name('category_update.get');
         Route::post('/update-post/{id}', [CategoryUpdateController::class, 'post', 'as' => 'category_update.post'])->name('category_update.post');
+    });
+
+    Route::prefix('/enquiry')->group(function () {
+        Route::get('/', [EnquiryPaginateController::class, 'get', 'as' => 'enquiry_list.get'])->name('enquiry_list.get');
+        Route::get('/delete/{id}', [EnquiryDeleteController::class, 'get', 'as' => 'enquiry_delete.get'])->name('enquiry_delete.get');
     });
 
     Route::prefix('/product')->group(function () {

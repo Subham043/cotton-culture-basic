@@ -26,7 +26,7 @@
 	.newsletter_section { margin-bottom: 30px;}
 	#brand-logo-slider {margin:0px 0 0px;    padding: 0;}
 
-	.featured-branding__branding {  margin-bottom: 20px;    padding: 20px 0 20px; overflow:hidden;margin-top: 50px;}
+	.featured-branding__branding { margin-bottom: 20px;    padding: 20px 0 20px; overflow:hidden;margin-top: 50px;}
 	h1.branding__title.reset-font-weight { padding-bottom: 0px;font-size: 35px;}
 	.product-view .product-name h1 {  padding-right: 0px;}
 	.availability.in-stock
@@ -101,7 +101,7 @@
 		top: 3px;
 	}
 	.bestsell-pro .owl-theme .owl-controls {	left: auto;	right: 55px;	top:-9%;	width: 1%;}
-	.best-pro-outer {  padding-top:0px;     padding-bottom: 0;}
+	.best-pro-outer {  padding-top:0px;     padding-bottom: 0; margin-top: 40px;}
 	.blog-outer-container {	 margin: 0px 0 35px;  overflow: hidden;}
 	.testi-slider .item-desc {   margin: 0 0px;   padding:0;}
 	.testimonials-section {  background-position: right center;}
@@ -118,7 +118,7 @@
 	.products-list .product-shop button.button span {display: none;}
 		.email-addto-box { margin-left: 5px;}
 		.breadcrumbs {  margin: 15px auto 10px;}
-		.featured-branding__branding {  margin-bottom: 20px;  overflow: hidden;    margin-top: 50px;  padding: 30px 0 30px;}
+		.featured-branding__branding {  width: 100%;  margin-bottom: 20px;  overflow: hidden;    margin-top: 50px;  padding: 30px 0 30px;}
 	h1.branding__title.reset-font-weight { padding-bottom: 0px;}
 	.product-view .product-name h1 {  padding-right: 0px;}
 	.availability.in-stock

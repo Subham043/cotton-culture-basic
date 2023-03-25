@@ -34,7 +34,7 @@
                                                     <div class="right-block">
                                                         <div class="item-info">
                                                             <div class="info-inner">
-                                                                <div class="item-title"> <a title="Bluetooth Smart Watch"
+                                                                <div class="item-title"> <a
                                                                         href="{{route('prodcuct_detail.get', $item->id)}}">{{$item->name}}</a> </div>
                                                                 <div class="item-content">
                                                                     <p class="product-manufacturer">{{$category->name}}</p>

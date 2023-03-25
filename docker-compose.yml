@@ -4,19 +4,19 @@ networks:
   laravel:
 
 services:
-  # nginx: 
-  #   image: nginx:stable-alpine
-  #   container_name: cotton_culture_nginx
-  #   ports:
-  #     - "8081:80"
-  #   volumes:
-  #     - ./src:/var/www/html
-  #     - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
-  #   depends_on:
-  #     - php
-  #     - mysql
-  #   networks:
-  #     - laravel
+  nginx: 
+    image: nginx:stable-alpine
+    container_name: cotton_culture_nginx
+    ports:
+      - "8085:80"
+    volumes:
+      - ./src:/var/www/html
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - php
+      - mysql
+    networks:
+      - laravel
 
   mysql:
     image: mariadb:10.5.8
@@ -48,14 +48,40 @@ services:
     networks:
       laravel:
 
-  # php:
-  #   build: 
-  #     context: .
-  #     dockerfile: Dockerfile
-  #   container_name: cotton_culture_php
-  #   volumes:
-  #     - ./src:/var/www/html
-  #   ports:
-  #     - "9000:9000"
-  #   networks:
-  #     - laravel
+  php:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    container_name: cotton_culture_php
+    volumes:
+      - ./src:/var/www/html
+    ports:
+      - "9000:9000"
+    networks:
+      - laravel
+
+  composer:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: cotton_culture_composer
+    volumes:
+      - ./src:/var/www/html
+    depends_on:
+      - php
+    entrypoint: [ 'composer', '--ignore-platform-reqs' ]
+    networks:
+      - laravel
+
+  artisan:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: cotton_culture_artisan
+    volumes:
+      - ./src:/var/www/html
+    depends_on:
+      - mysql
+    entrypoint: [ 'php', '/var/www/html/artisan' ]
+    networks:
+      - laravel

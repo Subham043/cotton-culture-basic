@@ -86,7 +86,9 @@ class ProductService
     {
         if($request->hasFile('catalogue')){
             $catalogue = (new FileService)->save_file($request, 'catalogue', $this->path);
-            (new FileService)->delete_file('app/'.$this->path.'/'.$data->catalogue);
+            if($data->catalogue){
+                (new FileService)->delete_file('app/'.$this->path.'/'.$data->catalogue);
+            }
             $data->update([
                 'catalogue' => $catalogue,
             ]);

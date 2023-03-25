@@ -30,12 +30,19 @@ class Product extends Model
         'publish_status' => 1,
     ];
 
-    protected $appends = ['publish_status_type'];
+    protected $appends = ['publish_status_type', 'catalogue_link'];
 
     protected function publishStatusType(): Attribute
     {
         return new Attribute(
             get: fn () => PublishStatusEnum::getValue($this->publish_status),
+        );
+    }
+
+    protected function catalogueLink(): Attribute
+    {
+        return new Attribute(
+            get: fn () => asset('storage/upload/products/catalogue/'.$this->catalogue),
         );
     }
 

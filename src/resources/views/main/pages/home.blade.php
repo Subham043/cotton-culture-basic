@@ -128,7 +128,7 @@
                                                     @if($item->ProductImage->count() > 0)
                                                     <div class="item-img">
                                                         <div class="item-img-info">
-                                                            <a class="product-image" title="Sample"
+                                                            <a class="product-image"
                                                                 href="{{route('prodcuct_detail.get', $item->id)}}">
                                                                 <img alt="Sample" src="{{ $item->ProductImage[0]->image_link }}" />
                                                             </a>
@@ -139,7 +139,7 @@
                                                         <div class="item-info">
                                                             <div class="info-inner">
                                                                 <div class="item-title">
-                                                                    <a title="Bluetooth Smart Watch"
+                                                                    <a
                                                                         href="{{route('prodcuct_detail.get', $item->id)}}">{{$item->name}}</a>
                                                                 </div>
                                                                 <div class="item-content">
