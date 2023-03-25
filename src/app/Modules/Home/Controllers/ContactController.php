@@ -3,18 +3,21 @@
 namespace App\Modules\Home\Controllers;
 
 use App\Http\Controllers\Controller;
-use App\Modules\Products\Services\ProductService;
+use App\Modules\Categories\Services\CategoryService;
 
 class ContactController extends Controller
 {
-    private $productService;
+    private $categoryService;
 
-    public function __construct(ProductService $productService)
+    public function __construct(CategoryService $categoryService)
     {
-        $this->productService = $productService;
+        $this->categoryService = $categoryService;
     }
 
     public function get(){
-        return view('main.pages.contact');
+        $categories = $this->categoryService->allActive();
+        return view('main.pages.contact')->with([
+            'categories' => $categories
+        ]);
     }
 }

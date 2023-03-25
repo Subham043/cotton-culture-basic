@@ -22,8 +22,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [HomeController::class, 'get', 'as' => 'home.get'])->name('home.get');
 Route::get('/about', [AboutController::class, 'get', 'as' => 'about.get'])->name('about.get');
 Route::get('/contact', [ContactController::class, 'get', 'as' => 'contact.get'])->name('contact.get');
+Route::get('/product/{product_id}', [ProductController::class, 'get', 'as' => 'prodcuct_detail.get'])->where('product_id', '[0-9]+')->name('prodcuct_detail.get');
 
-Route::prefix('/products')->group(function () {
-    Route::get('/', [ProductsController::class, 'get', 'as' => 'prodcucts.get'])->name('prodcucts.get');
-    Route::get('/{id}', [ProductController::class, 'get', 'as' => 'prodcuct.get'])->name('prodcuct.get');
+Route::prefix('/{category_id}')->group(function () {
+    Route::get('/', [ProductsController::class, 'get', 'as' => 'prodcucts.get'])->where('category_id', '[0-9]+')->name('prodcucts.get');
 });

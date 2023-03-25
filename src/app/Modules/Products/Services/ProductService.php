@@ -2,6 +2,7 @@
 
 namespace App\Modules\Products\Services;
 
+use App\Enums\PublishStatusEnum;
 use App\Http\Services\FileService;
 use App\Modules\Products\Models\Product;
 use App\Modules\Products\Requests\ProductRequest;
@@ -24,6 +25,15 @@ class ProductService
         return $this->productModel->orderBy('id', 'DESC')->get();
     }
 
+    public function getActivePopularData(): Collection
+    {
+        return $this->productModel->with('ProductImage', 'Category')
+        ->where('publish_status', PublishStatusEnum::ACTIVE->label())
+        ->inRandomOrder()
+        ->limit(8)
+        ->orderBy('id', 'DESC')->get();
+    }
+
     public function paginate(Request $request, Int $limit = 10): LengthAwarePaginator
     {
         if ($request->has('search')) {
@@ -38,9 +48,22 @@ class ProductService
         return $this->productModel->with('Category')->orderBy('id', 'DESC')->paginate($limit);
     }
 
+    public function paginateActiveDataByCategoryId(Request $request, Int $category_id, Int $limit = 10): LengthAwarePaginator
+    {
+        return $this->productModel->with('ProductImage')
+        ->where('publish_status', PublishStatusEnum::ACTIVE->label())
+        ->where('category_id', $category_id)->orderBy('id', 'DESC')
+        ->paginate($limit);
+    }
+
     public function getById(Int $id): Product
     {
         return $this->productModel->findOrFail($id);
+    }
+
+    public function getActiveDataById(Int $id): Product
+    {
+        return $this->productModel->with('ProductImage')->where('publish_status', PublishStatusEnum::ACTIVE->label())->findOrFail($id);
     }
 
     public function create(ProductRequest $request): void

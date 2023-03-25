@@ -2,6 +2,7 @@
 
 namespace App\Modules\Categories\Services;
 
+use App\Enums\PublishStatusEnum;
 use App\Modules\Categories\Models\Category;
 use App\Modules\Categories\Requests\CategoryRequest;
 use Illuminate\Database\Eloquent\Collection;
@@ -10,41 +11,45 @@ use Illuminate\Pagination\LengthAwarePaginator;
 
 class CategoryService
 {
-    private $projectModel;
-    private $path = 'public/upload/projects';
+    private $categoryModel;
 
-    public function __construct(Category $projectModel)
+    public function __construct(Category $categoryModel)
     {
-        $this->projectModel = $projectModel;
+        $this->categoryModel = $categoryModel;
     }
 
     public function all(): Collection
     {
-        return $this->projectModel->orderBy('id', 'DESC')->get();
+        return $this->categoryModel->orderBy('id', 'DESC')->get();
+    }
+
+    public function allActive(): Collection
+    {
+        return $this->categoryModel->where('publish_status', PublishStatusEnum::ACTIVE->label())->orderBy('id', 'DESC')->get();
     }
 
     public function paginate(Request $request, Int $limit = 10): LengthAwarePaginator
     {
         if ($request->has('search')) {
             $search = $request->input('search');
-            return $this->projectModel->where('name', 'like', '%' . $search . '%')->orderBy('id', 'DESC')->paginate($limit);
+            return $this->categoryModel->where('name', 'like', '%' . $search . '%')->orderBy('id', 'DESC')->paginate($limit);
         }
-        return $this->projectModel->orderBy('id', 'DESC')->paginate($limit);
+        return $this->categoryModel->orderBy('id', 'DESC')->paginate($limit);
     }
 
     public function getById(Int $id): Category
     {
-        return $this->projectModel->findOrFail($id);
+        return $this->categoryModel->findOrFail($id);
     }
 
-    public function getBySlug(String $slug): Category
+    public function getActiveDataById(Int $id): Category
     {
-        return $this->projectModel->where('slug', $slug)->firstOrFail();
+        return $this->categoryModel->where('publish_status', PublishStatusEnum::ACTIVE->label())->findOrFail($id);
     }
 
     public function create(CategoryRequest $request): void
     {
-        $this->projectModel->create([
+        $this->categoryModel->create([
             ...$request->all(),
         ]);
     }

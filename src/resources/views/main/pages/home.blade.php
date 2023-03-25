@@ -108,6 +108,7 @@
     <!-- end Slider -->
 
     <!-- End Banner Blog -->
+    @if(count($popular_products) > 0)
     <div class="best-pro-outer">
         <div class="container">
             <div class="row">
@@ -120,360 +121,32 @@
 
                                 <div id="bestsell-slider" class="product-flexslider hidden-buttons">
                                     <div class="slider-items slider-width-col4 products-grid block-content">
+                                        @foreach ($popular_products as $item)
                                         <div class="item">
                                             <div class="item-inner">
                                                 <div class="productborder">
+                                                    @if($item->ProductImage->count() > 0)
                                                     <div class="item-img">
-                                                        <div class="item-img-info"> <a class="product-image"
-                                                                title="Luz Modern Armchair"
-                                                                href="product_detail.html"> <img
-                                                                    alt="Luz Modern Armchair"
-                                                                    src="{{ asset('assets/images/product10.jpg') }}"> </a>
-                                                            <div class="new-label new-top-right">new</div>
-                                                            <!-- <div class="quickview top-right"> <a class="link-quickview" href="quick_view.html"> <i class="fa fa-search" aria-hidden="true"></i></a> </div> -->
-                                                            <div class="item-box-hover">
-                                                                <div class="box-inner">
-                                                                    <div class="add_cart">
-                                                                        <button class="button btn-cart"
-                                                                            type="button"><span>Add to
-                                                                                Cart</span></button>
-                                                                    </div>
-                                                                    <div class="product-detail-bnt"><a
-                                                                            class="button detail-bnt"><span>Quick
-                                                                                View</span></a></div>
-                                                                    <div class="actions"><span
-                                                                            class="add-to-links"><a
-                                                                                href="#"
-                                                                                class="link-wishlist"
-                                                                                title="Add to Wishlist"><span>Add
-                                                                                    to Wishlist</span></a> <a
-                                                                                href="#"
-                                                                                class="link-compare add_to_compare"
-                                                                                title="Add to Compare"><span>Add
-                                                                                    to Compare</span></a></span>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
+                                                        <div class="item-img-info">
+                                                            <a class="product-image" title="Sample"
+                                                                href="{{route('prodcuct_detail.get', $item->id)}}">
+                                                                <img alt="Sample" src="{{ $item->ProductImage[0]->image_link }}" />
+                                                            </a>
                                                         </div>
                                                     </div>
+                                                    @endif
                                                     <div class="right-block">
                                                         <div class="item-info">
                                                             <div class="info-inner">
-                                                                <div class="item-title"> <a
-                                                                        title="Luz Modern Armchair"
-                                                                        href="product_detail.html">Natural
-                                                                        Beauty Products</a>
-                                                                    <h5> Cosmetics </h5>
+                                                                <div class="item-title">
+                                                                    <a title="Bluetooth Smart Watch"
+                                                                        href="{{route('prodcuct_detail.get', $item->id)}}">{{$item->name}}</a>
                                                                 </div>
-
-                                                                <div class="item-price">
-                                                                    <div class="price-box"> <span
-                                                                            class="regular-price"> <span
-                                                                                class="price">$915.00</span></span>
-                                                                    </div>
+                                                                <div class="item-content">
+                                                                    <p class="product-manufacturer">
+                                                                        {{$item->Category->name}}
+                                                                    </p>
                                                                 </div>
-
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <!-- Item -->
-                                        <div class="item">
-                                            <div class="item-inner">
-                                                <div class="productborder">
-                                                    <div class="item-img">
-                                                        <div class="item-img-info"> <a class="product-image"
-                                                                title="Echasse Vases"
-                                                                href="product_detail.html"> <img
-                                                                    alt="Echasse Vases"
-                                                                    src="{{ asset('assets/images/product2.jpg') }}"> </a>
-                                                            <!-- <div class="quickview top-right"> <a class="link-quickview" href="quick_view.html"> <i class="fa fa-search" aria-hidden="true"></i></a> </div> -->
-                                                            <div class="item-box-hover">
-                                                                <div class="box-inner">
-                                                                    <div class="add_cart">
-                                                                        <button class="button btn-cart"
-                                                                            type="button"><span>Add to
-                                                                                Cart</span></button>
-                                                                    </div>
-                                                                    <div class="product-detail-bnt"><a
-                                                                            class="button detail-bnt"><span>Quick
-                                                                                View</span></a></div>
-                                                                    <div class="actions"><span
-                                                                            class="add-to-links"><a
-                                                                                href="#"
-                                                                                class="link-wishlist"
-                                                                                title="Add to Wishlist"><span>Add
-                                                                                    to Wishlist</span></a> <a
-                                                                                href="#"
-                                                                                class="link-compare add_to_compare"
-                                                                                title="Add to Compare"><span>Add
-                                                                                    to Compare</span></a></span>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="right-block">
-                                                        <div class="item-info">
-                                                            <div class="info-inner">
-                                                                <div class="item-title"> <a
-                                                                        title="Échasse Vases"
-                                                                        href="product_detail.html"> Natural
-                                                                        Beauty Products</a>
-                                                                    <h5> Cosmetics </h5>
-                                                                </div>
-
-                                                                <div class="item-price">
-                                                                    <div class="price-box"> <span
-                                                                            class="regular-price"> <span
-                                                                                class="price">$165.95</span>
-                                                                        </span> </div>
-                                                                </div>
-
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!-- End Item -->
-
-                                        <!-- Item -->
-                                        <div class="item">
-                                            <div class="item-inner">
-                                                <div class="productborder">
-                                                    <div class="item-img">
-                                                        <div class="item-img-info"> <a class="product-image"
-                                                                title=" XZ3 Table Round"
-                                                                href="product_detail.html"> <img
-                                                                    alt=" XZ3 Table Round"
-                                                                    src="{{ asset('assets/images/product3.jpg') }}"> </a>
-                                                            <!-- <div class="quickview top-right"> <a class="link-quickview" href="quick_view.html"><i class="fa fa-search" aria-hidden="true"></i></a> </div> -->
-                                                            <div class="item-box-hover">
-                                                                <div class="box-inner">
-                                                                    <div class="add_cart">
-                                                                        <button class="button btn-cart"
-                                                                            type="button"><span>Add to
-                                                                                Cart</span></button>
-                                                                    </div>
-                                                                    <div class="product-detail-bnt"><a
-                                                                            class="button detail-bnt"><span>Quick
-                                                                                View</span></a></div>
-                                                                    <div class="actions"><span
-                                                                            class="add-to-links"><a
-                                                                                href="#"
-                                                                                class="link-wishlist"
-                                                                                title="Add to Wishlist"><span>Add
-                                                                                    to Wishlist</span></a> <a
-                                                                                href="#"
-                                                                                class="link-compare add_to_compare"
-                                                                                title="Add to Compare"><span>Add
-                                                                                    to Compare</span></a></span>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="right-block">
-                                                        <div class="item-info">
-                                                            <div class="info-inner">
-                                                                <div class="item-title"> <a
-                                                                        title="  XZ3 Table Round "
-                                                                        href="product_detail.html"> Natural
-                                                                        Beauty Products </a>
-                                                                    <h5> Cosmetics </h5>
-                                                                </div>
-
-                                                                <div class="item-price">
-                                                                    <div class="price-box"> <span
-                                                                            class="regular-price"> <span
-                                                                                class="price">$472.00</span>
-                                                                        </span> </div>
-                                                                </div>
-
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!-- End Item -->
-
-                                        <div class="item">
-                                            <div class="item-inner">
-                                                <div class="productborder">
-                                                    <div class="item-img">
-                                                        <div class="item-img-info"> <a class="product-image"
-                                                                title="Contemporary Talk Lamp"
-                                                                href="product_detail.html"> <img
-                                                                    alt="Contemporary Talk Lamp"
-                                                                    src="{{ asset('assets/images/product4.jpg') }}"> </a>
-                                                            <div class="new-label new-top-right">new</div>
-                                                            <!-- <div class="quickview top-right"> <a class="link-quickview" href="quick_view.html"><i class="fa fa-search" aria-hidden="true"></i></a> </div> -->
-                                                            <div class="item-box-hover">
-                                                                <div class="box-inner">
-                                                                    <div class="add_cart">
-                                                                        <button class="button btn-cart"
-                                                                            type="button"><span>Add to
-                                                                                Cart</span></button>
-                                                                    </div>
-                                                                    <div class="product-detail-bnt"><a
-                                                                            class="button detail-bnt"><span>Quick
-                                                                                View</span></a></div>
-                                                                    <div class="actions"><span
-                                                                            class="add-to-links"><a
-                                                                                href="#"
-                                                                                class="link-wishlist"
-                                                                                title="Add to Wishlist"><span>Add
-                                                                                    to Wishlist</span></a> <a
-                                                                                href="#"
-                                                                                class="link-compare add_to_compare"
-                                                                                title="Add to Compare"><span>Add
-                                                                                    to Compare</span></a></span>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="right-block">
-                                                        <div class="item-info">
-                                                            <div class="info-inner">
-                                                                <div class="item-title"> <a
-                                                                        title="Contemporary Talk Lamp"
-                                                                        href="product_detail.html">Natural
-                                                                        Beauty Products</a>
-                                                                    <h5>Cosmetics </h5>
-                                                                </div>
-
-                                                                <div class="item-price">
-                                                                    <div class="price-box"> <span
-                                                                            class="regular-price"> <span
-                                                                                class="price">$199.00</span>
-                                                                        </span> </div>
-                                                                </div>
-
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <!-- Item -->
-                                        <div class="item">
-                                            <div class="item-inner">
-                                                <div class="productborder">
-                                                    <div class="item-img">
-                                                        <div class="item-img-info"> <a class="product-image"
-                                                                title="Tripod Lamp"
-                                                                href="product_detail.html"> <img
-                                                                    alt="Tripod Lamp"
-                                                                    src="{{ asset('assets/images/product5.jpg') }}"> </a>
-                                                            <!-- <div class="quickview top-right"> <a class="link-quickview" href="quick_view.html"><i class="fa fa-search" aria-hidden="true"></i></a> </div> -->
-                                                            <div class="item-box-hover">
-                                                                <div class="box-inner">
-                                                                    <div class="add_cart">
-                                                                        <button class="button btn-cart"
-                                                                            type="button"><span>Add to
-                                                                                Cart</span></button>
-                                                                    </div>
-                                                                    <div class="product-detail-bnt"><a
-                                                                            class="button detail-bnt"><span>Quick
-                                                                                View</span></a></div>
-                                                                    <div class="actions"><span
-                                                                            class="add-to-links"><a
-                                                                                href="#"
-                                                                                class="link-wishlist"
-                                                                                title="Add to Wishlist"><span>Add
-                                                                                    to Wishlist</span></a> <a
-                                                                                href="#"
-                                                                                class="link-compare add_to_compare"
-                                                                                title="Add to Compare"><span>Add
-                                                                                    to Compare</span></a></span>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="right-block">
-                                                        <div class="item-info">
-                                                            <div class="info-inner">
-                                                                <div class="item-title"> <a
-                                                                        title="  Tripod Lamp "
-                                                                        href="product_detail.html"> Cosmetics
-                                                                    </a>
-                                                                    <h5> Natural Beauty Products </h5>
-                                                                </div>
-
-                                                                <div class="item-price">
-                                                                    <div class="price-box"> <span
-                                                                            class="regular-price"> <span
-                                                                                class="price">$199.95</span>
-                                                                        </span> </div>
-                                                                </div>
-
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!-- End Item -->
-                                        <div class="item">
-                                            <div class="item-inner">
-                                                <div class="productborder">
-                                                    <div class="item-img">
-                                                        <div class="item-img-info"> <a class="product-image"
-                                                                title="Titanes Sideboard"
-                                                                href="product_detail.html"> <img
-                                                                    alt="Titanes Sideboard"
-                                                                    src="{{ asset('assets/images/product6.jpg') }}"> </a>
-                                                            <!-- <div class="quickview top-right"> <a class="link-quickview" href="quick_view.html"><i class="fa fa-search" aria-hidden="true"></i></a> </div> -->
-                                                            <div class="item-box-hover">
-                                                                <div class="box-inner">
-                                                                    <div class="add_cart">
-                                                                        <button class="button btn-cart"
-                                                                            type="button"><span>Add to
-                                                                                Cart</span></button>
-                                                                    </div>
-                                                                    <div class="product-detail-bnt"><a
-                                                                            class="button detail-bnt"><span>Quick
-                                                                                View</span></a></div>
-                                                                    <div class="actions"><span
-                                                                            class="add-to-links"><a
-                                                                                href="#"
-                                                                                class="link-wishlist"
-                                                                                title="Add to Wishlist"><span>Add
-                                                                                    to Wishlist</span></a> <a
-                                                                                href="#"
-                                                                                class="link-compare add_to_compare"
-                                                                                title="Add to Compare"><span>Add
-                                                                                    to Compare</span></a></span>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="right-block">
-                                                        <div class="item-info">
-                                                            <div class="info-inner">
-                                                                <div class="item-title"> <a
-                                                                        title="  Titanes Sideboard "
-                                                                        href="product_detail.html"> Natural
-                                                                        Beauty Products </a>
-                                                                    <h5> Cosmetics </h5>
-                                                                </div>
-
-                                                                <div class="item-price">
-                                                                    <div class="price-box"> <span
-                                                                            class="regular-price"> <span
-                                                                                class="price">$3,300.95</span>
-                                                                        </span> </div>
-                                                                </div>
-
                                                             </div>
                                                         </div>
                                                     </div>
@@ -481,126 +154,7 @@
                                             </div>
                                         </div>
                                         <!-- Item -->
-                                        <div class="item">
-                                            <div class="item-inner">
-                                                <div class="productborder">
-                                                    <div class="item-img">
-                                                        <div class="item-img-info"> <a class="product-image"
-                                                                title="Heima Candlestick"
-                                                                href="product_detail.html"> <img
-                                                                    alt="Heima Candlestick"
-                                                                    src="{{ asset('assets/images/product7.jpg') }}"> </a>
-                                                            <!-- <div class="quickview top-right"> <a class="link-quickview" href="quick_view.html"><i class="fa fa-search" aria-hidden="true"></i></a> </div> -->
-                                                            <div class="item-box-hover">
-                                                                <div class="box-inner">
-                                                                    <div class="add_cart">
-                                                                        <button class="button btn-cart"
-                                                                            type="button"><span>Add to
-                                                                                Cart</span></button>
-                                                                    </div>
-                                                                    <div class="product-detail-bnt"><a
-                                                                            class="button detail-bnt"><span>Quick
-                                                                                View</span></a></div>
-                                                                    <div class="actions"><span
-                                                                            class="add-to-links"><a
-                                                                                href="#"
-                                                                                class="link-wishlist"
-                                                                                title="Add to Wishlist"><span>Add
-                                                                                    to Wishlist</span></a> <a
-                                                                                href="#"
-                                                                                class="link-compare add_to_compare"
-                                                                                title="Add to Compare"><span>Add
-                                                                                    to Compare</span></a></span>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="right-block">
-                                                        <div class="item-info">
-                                                            <div class="info-inner">
-                                                                <div class="item-title"> <a
-                                                                        title=" Heima Candlestick"
-                                                                        href="product_detail.html"> Natural
-                                                                        Beauty Products</a>
-                                                                    <h5> Cosmetics </h5>
-                                                                </div>
-
-                                                                <div class="item-price">
-                                                                    <div class="price-box"> <span
-                                                                            class="regular-price"> <span
-                                                                                class="price">$78.95</span>
-                                                                        </span> </div>
-                                                                </div>
-
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <!-- Item -->
-                                        <div class="item">
-                                            <div class="item-inner">
-                                                <div class="productborder">
-                                                    <div class="item-img">
-                                                        <div class="item-img-info"> <a class="product-image"
-                                                                title="Steelwood Chair by Magis"
-                                                                href="product_detail.html"> <img
-                                                                    alt="Steelwood Chair by Magis"
-                                                                    src="{{ asset('assets/images/product8.jpg') }}"> </a>
-                                                            <!-- <div class="quickview top-right"> <a class="link-quickview" href="quick_view.html"><i class="fa fa-search" aria-hidden="true"></i></a> </div> -->
-                                                            <div class="item-box-hover">
-                                                                <div class="box-inner">
-                                                                    <div class="add_cart">
-                                                                        <button class="button btn-cart"
-                                                                            type="button"><span>Add to
-                                                                                Cart</span></button>
-                                                                    </div>
-                                                                    <div class="product-detail-bnt"><a
-                                                                            class="button detail-bnt"><span>Quick
-                                                                                View</span></a></div>
-                                                                    <div class="actions"><span
-                                                                            class="add-to-links"><a
-                                                                                href="#"
-                                                                                class="link-wishlist"
-                                                                                title="Add to Wishlist"><span>Add
-                                                                                    to Wishlist</span></a> <a
-                                                                                href="#"
-                                                                                class="link-compare add_to_compare"
-                                                                                title="Add to Compare"><span>Add
-                                                                                    to Compare</span></a></span>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="right-block">
-                                                        <div class="item-info">
-                                                            <div class="info-inner">
-                                                                <div class="item-title"> <a
-                                                                        title=" Steelwood Chair by Magis"
-                                                                        href="product_detail.html"> Natural
-                                                                        Beauty Products</a>
-                                                                    <h5> Cosmetics </h5>
-                                                                </div>
-
-                                                                <div class="item-price">
-                                                                    <div class="price-box"> <span
-                                                                            class="regular-price"> <span
-                                                                                class="price">$760.00</span>
-                                                                        </span> </div>
-                                                                </div>
-
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <!-- End Item -->
+                                        @endforeach
 
 
                                     </div>
@@ -613,6 +167,7 @@
             </div>
         </div>
     </div>
+    @endif
     <!--Popular Products end-->
 
     <!-- bottom banner section -->
