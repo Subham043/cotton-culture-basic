@@ -24,6 +24,7 @@
                                 <div class="col-sm-auto">
                                     <div>
                                         <a href="{{route('product_create.get')}}" style="background:green;border-color:green;" type="button" class="btn btn-success add-btn" id="create-btn"><i class="ri-add-line align-bottom me-1"></i> Create</a>
+                                        <a href="{{route('product_excel.get')}}" style="background:rgb(0, 19, 128);border-color:rgb(0, 19, 128);" type="button" class="btn btn-success add-btn" id="create-btn"><i class="ri-file-excel-line align-bottom me-1"></i> Excel Upload</a>
                                     </div>
                                 </div>
                                 <div class="col-sm">

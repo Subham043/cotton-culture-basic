@@ -5,23 +5,23 @@ networks:
 
 
 services:
-  app:
-    container_name: cotton_culture_nginx
-    build:
-      context: ./dockerfiles
-      dockerfile: nginx.dockerfile
-      args:
-        - UID=${UID:-1000}
-        - GID=${GID:-1000}
-    ports:
-      - "8085:80"
-    volumes:
-      - ./src:/var/www/html:delegated
-    depends_on:
-      - php
-      - mysql
-    networks:
-      - cotton_culture_laravel
+  # app:
+  #   container_name: cotton_culture_nginx
+  #   build:
+  #     context: ./dockerfiles
+  #     dockerfile: nginx.dockerfile
+  #     args:
+  #       - UID=${UID:-1000}
+  #       - GID=${GID:-1000}
+  #   ports:
+  #     - "8085:80"
+  #   volumes:
+  #     - ./src:/var/www/html:delegated
+  #   depends_on:
+  #     - php
+  #     - mysql
+  #   networks:
+  #     - cotton_culture_laravel
 
   mysql:
     image: mariadb:10.5.8
@@ -51,49 +51,49 @@ services:
     networks:
       - cotton_culture_laravel
 
-  php:
-    build:
-      context: ./dockerfiles
-      dockerfile: php.dockerfile
-      args:
-        - UID=${UID:-1000}
-        - GID=${GID:-1000}
-    container_name: cotton_culture_php
-    ports:
-      - "9002:9000"
-    volumes:
-      - ./src:/var/www/html:delegated
-    networks:
-      - cotton_culture_laravel
+  # php:
+  #   build:
+  #     context: ./dockerfiles
+  #     dockerfile: php.dockerfile
+  #     args:
+  #       - UID=${UID:-1000}
+  #       - GID=${GID:-1000}
+  #   container_name: cotton_culture_php
+  #   ports:
+  #     - "9002:9000"
+  #   volumes:
+  #     - ./src:/var/www/html:delegated
+  #   networks:
+  #     - cotton_culture_laravel
 
-  composer:
-    build:
-      context: ./dockerfiles
-      dockerfile: php.dockerfile
-      args:
-        - UID=${UID:-1000}
-        - GID=${GID:-1000}
-    container_name: cotton_culture_composer
-    volumes:
-      - ./src:/var/www/html
-    depends_on:
-      - php
-    entrypoint: [ 'composer', '--ignore-platform-reqs' ]
-    networks:
-      - cotton_culture_laravel
+  # composer:
+  #   build:
+  #     context: ./dockerfiles
+  #     dockerfile: php.dockerfile
+  #     args:
+  #       - UID=${UID:-1000}
+  #       - GID=${GID:-1000}
+  #   container_name: cotton_culture_composer
+  #   volumes:
+  #     - ./src:/var/www/html
+  #   depends_on:
+  #     - php
+  #   entrypoint: [ 'composer', '--ignore-platform-reqs' ]
+  #   networks:
+  #     - cotton_culture_laravel
 
-  artisan:
-    build:
-      context: ./dockerfiles
-      dockerfile: php.dockerfile
-      args:
-        - UID=${UID:-1000}
-        - GID=${GID:-1000}
-    container_name: cotton_culture_artisan
-    volumes:
-      - ./src:/var/www/html:delegated
-    depends_on:
-      - mysql
-    entrypoint: [ 'php', '/var/www/html/artisan' ]
-    networks:
-      - cotton_culture_laravel
+  # artisan:
+  #   build:
+  #     context: ./dockerfiles
+  #     dockerfile: php.dockerfile
+  #     args:
+  #       - UID=${UID:-1000}
+  #       - GID=${GID:-1000}
+  #   container_name: cotton_culture_artisan
+  #   volumes:
+  #     - ./src:/var/www/html:delegated
+  #   depends_on:
+  #     - mysql
+  #   entrypoint: [ 'php', '/var/www/html/artisan' ]
+  #   networks:
+  #     - cotton_culture_laravel

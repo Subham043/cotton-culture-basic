@@ -14,6 +14,7 @@ use App\Modules\Enquiries\Controllers\EnquiryDeleteController;
 use App\Modules\Enquiries\Controllers\EnquiryPaginateController;
 use App\Modules\Products\Controllers\ProductCreateController;
 use App\Modules\Products\Controllers\ProductDeleteController;
+use App\Modules\Products\Controllers\ProductExcelController;
 use App\Modules\Products\Controllers\ProductImageCreateController;
 use App\Modules\Products\Controllers\ProductImageDeleteController;
 use App\Modules\Products\Controllers\ProductImagePaginateController;
@@ -100,6 +101,8 @@ Route::middleware(['auth'])->group(function () {
     Route::prefix('/product')->group(function () {
         Route::get('/create', [ProductCreateController::class, 'get', 'as' => 'product_create.get'])->name('product_create.get');
         Route::post('/create-post', [ProductCreateController::class, 'post', 'as' => 'product_create.post'])->name('product_create.post');
+        Route::get('/excel', [ProductExcelController::class, 'get', 'as' => 'product_excel.get'])->name('product_excel.get');
+        Route::post('/excel-post', [ProductExcelController::class, 'post', 'as' => 'product_excel.post'])->name('product_excel.post');
         Route::get('/', [ProductPaginateController::class, 'get', 'as' => 'product_list.get'])->name('product_list.get');
         Route::get('/delete/{id}', [ProductDeleteController::class, 'get', 'as' => 'product_delete.get'])->name('product_delete.get');
         Route::get('/update/{id}', [ProductUpdateController::class, 'get', 'as' => 'product_update.get'])->name('product_update.get');
