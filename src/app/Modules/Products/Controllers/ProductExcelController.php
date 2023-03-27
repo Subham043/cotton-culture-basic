@@ -26,17 +26,10 @@ class ProductExcelController extends Controller
 
     public function post(ProductExcelRequest $request){
 
-        Excel::import(new ProductImport, request()->file('excel'));
-        return "yes";
-        if($data->count() == 0)
-        {
-            return redirect(route('product_excel.get'))->with('error_status', 'Please enter atleast one row of data in the excel.');
-        }
-        dd($data);
         try {
             //code...
-            $this->productService->create($request);
-            return redirect()->intended(route('product_excel.get'))->with('success_status', 'Product created successfully.');
+            Excel::import(new ProductImport, request()->file('excel'));
+            return redirect()->intended(route('product_excel.get'))->with('success_status', 'Product excel imported successfully.');
         } catch (\Throwable $th) {
             throw $th;
             return redirect(route('product_excel.get'))->with('error_status', 'Oops! Something went wrong. Please try again!');

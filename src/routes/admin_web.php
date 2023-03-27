@@ -11,7 +11,9 @@ use App\Modules\Categories\Controllers\CategoryDeleteController;
 use App\Modules\Categories\Controllers\CategoryPaginateController;
 use App\Modules\Categories\Controllers\CategoryUpdateController;
 use App\Modules\Enquiries\Controllers\EnquiryDeleteController;
+use App\Modules\Enquiries\Controllers\EnquiryExcelController;
 use App\Modules\Enquiries\Controllers\EnquiryPaginateController;
+use App\Modules\Enquiries\Controllers\EnquiryViewController;
 use App\Modules\Products\Controllers\ProductCreateController;
 use App\Modules\Products\Controllers\ProductDeleteController;
 use App\Modules\Products\Controllers\ProductExcelController;
@@ -95,7 +97,9 @@ Route::middleware(['auth'])->group(function () {
 
     Route::prefix('/enquiry')->group(function () {
         Route::get('/', [EnquiryPaginateController::class, 'get', 'as' => 'enquiry_list.get'])->name('enquiry_list.get');
+        Route::get('/view/{id}', [EnquiryViewController::class, 'get', 'as' => 'enquiry_view.get'])->name('enquiry_view.get');
         Route::get('/delete/{id}', [EnquiryDeleteController::class, 'get', 'as' => 'enquiry_delete.get'])->name('enquiry_delete.get');
+        Route::get('/excel', [EnquiryExcelController::class, 'get', 'as' => 'enquiry_excel.get'])->name('enquiry_excel.get');
     });
 
     Route::prefix('/product')->group(function () {

@@ -21,6 +21,11 @@
                     <div class="card-body">
                         <div id="customerList">
                             <div class="row g-4 mb-3">
+                                <div class="col-sm-auto">
+                                    <div>
+                                        <a href="{{route('enquiry_excel.get')}}" download style="background:rgb(0, 19, 128);border-color:rgb(0, 19, 128);" type="button" class="btn btn-success add-btn" id="create-btn"><i class="ri-file-excel-line align-bottom me-1"></i> Download Excel</a>
+                                    </div>
+                                </div>
                                 <div class="col-sm">
                                     @include('admin.includes.search_list', ['link'=>route('enquiry_list.get')])
                                 </div>
@@ -49,6 +54,9 @@
                                             <td class="date">{{$item->created_at}}</td>
                                             <td>
                                                 <div class="d-flex gap-2">
+                                                    <div class="edit">
+                                                        <a href="{{route('enquiry_view.get', $item->id)}}" style="background:yellow;color:black;border-color:yellow;" class="btn btn-sm btn-success edit-item-btn">View</a>
+                                                    </div>
                                                     <div class="remove">
                                                         <button class="btn btn-sm btn-danger remove-item-btn" style="background:red" onclick="deleteHandler('{{route('enquiry_delete.get', $item->id)}}')">Delete</button>
                                                     </div>
