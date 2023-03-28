@@ -31,7 +31,7 @@ class CategoryUpdateController extends Controller
             $this->categoryService->update($request, $data);
             return redirect()->intended(route('category_update.get', $id))->with('success_status', 'Category updated successfully.');
         } catch (\Throwable $th) {
-            throw $th;
+            //throw $th;
             return redirect(route('category_update.get', $id))->with('error_status', 'Oops! Something went wrong. Please try again!');
         }
 

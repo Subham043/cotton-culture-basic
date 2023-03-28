@@ -32,7 +32,7 @@ class ProductCreateController extends Controller
             $this->productService->create($request);
             return redirect()->intended(route('product_create.get'))->with('success_status', 'Product created successfully.');
         } catch (\Throwable $th) {
-            throw $th;
+            //throw $th;
             return redirect(route('product_create.get'))->with('error_status', 'Oops! Something went wrong. Please try again!');
         }
 

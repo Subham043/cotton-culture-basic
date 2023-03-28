@@ -34,7 +34,7 @@ class ProductImageCreateController extends Controller
             $this->productImageService->create($request, $product_id);
             return redirect()->intended(route('product_image_create.get', $product_id))->with('success_status', 'Product Image created successfully.');
         } catch (\Throwable $th) {
-            throw $th;
+            //throw $th;
             return redirect(route('product_image_create.get', $product_id))->with('error_status', 'Oops! Something went wrong. Please try again!');
         }
 

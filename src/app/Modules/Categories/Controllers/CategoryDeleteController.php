@@ -21,7 +21,7 @@ class CategoryDeleteController extends Controller
             $this->categoryService->delete($data);
             return redirect()->intended(route('category_list.get'))->with('success_status', 'Category deleted successfully.');
         } catch (\Throwable $th) {
-            throw $th;
+            //throw $th;
             return redirect(route('category_list.get'))->with('error_status', 'Oops! Something went wrong. Please try again!');
         }
     }

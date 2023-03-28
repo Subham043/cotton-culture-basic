@@ -5841,7 +5841,10 @@ content: "";
 }
 ul.products-grid {
 	padding: 0;
- margin:
+    margin: 0 -15px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
 }
 .category-products ul.products-grid li.item {
     text-align: center;
@@ -6763,6 +6766,9 @@ li .list {
 ul.products-grid {
 	padding: 0;
 	margin: 0 -15px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
 }
 a.button.detail-bnt span {
 	font-size: 12px;

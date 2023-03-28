@@ -25,7 +25,7 @@ class CategoryCreateController extends Controller
             $this->categoryService->create($request);
             return redirect()->intended(route('category_create.get'))->with('success_status', 'Category created successfully.');
         } catch (\Throwable $th) {
-            throw $th;
+            //throw $th;
             return redirect(route('category_create.get'))->with('error_status', 'Oops! Something went wrong. Please try again!');
         }
 

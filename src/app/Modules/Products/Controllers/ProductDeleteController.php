@@ -21,7 +21,7 @@ class ProductDeleteController extends Controller
             $this->productService->delete($data);
             return redirect()->intended(route('product_list.get'))->with('success_status', 'Product deleted successfully.');
         } catch (\Throwable $th) {
-            throw $th;
+            //throw $th;
             return redirect(route('product_list.get'))->with('error_status', 'Oops! Something went wrong. Please try again!');
         }
     }

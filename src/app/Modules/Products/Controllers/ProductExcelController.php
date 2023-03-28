@@ -31,7 +31,7 @@ class ProductExcelController extends Controller
             Excel::import(new ProductImport, request()->file('excel'));
             return redirect()->intended(route('product_excel.get'))->with('success_status', 'Product excel imported successfully.');
         } catch (\Throwable $th) {
-            throw $th;
+            //throw $th;
             return redirect(route('product_excel.get'))->with('error_status', 'Oops! Something went wrong. Please try again!');
         }
 

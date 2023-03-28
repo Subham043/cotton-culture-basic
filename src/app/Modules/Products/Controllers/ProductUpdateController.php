@@ -37,7 +37,7 @@ class ProductUpdateController extends Controller
             $this->productService->update($request, $data);
             return redirect()->intended(route('product_update.get', $id))->with('success_status', 'Product updated successfully.');
         } catch (\Throwable $th) {
-            throw $th;
+            //throw $th;
             return redirect(route('product_update.get', $id))->with('error_status', 'Oops! Something went wrong. Please try again!');
         }
 

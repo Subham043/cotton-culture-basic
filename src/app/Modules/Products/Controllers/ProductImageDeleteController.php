@@ -21,7 +21,7 @@ class ProductImageDeleteController extends Controller
             $this->productImageService->delete($data);
             return redirect()->intended(route('product_image_list.get', $project_id))->with('success_status', 'Product Image deleted successfully.');
         } catch (\Throwable $th) {
-            throw $th;
+            //throw $th;
             return redirect(route('product_image_list.get', $project_id))->with('error_status', 'Oops! Something went wrong. Please try again!');
         }
     }

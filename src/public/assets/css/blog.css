@@ -736,7 +736,7 @@ blockquote cite a, blockquote cite a:visited, blockquote cite a:visited {
     margin: 0;
     color: #888;
 }
-.blog-wrapper .comment-content h3 { 
+.blog-wrapper .comment-content h3 {
     font-size: 15px;
     font-weight: 500;
     padding: 9px 15px;
@@ -749,7 +749,7 @@ blockquote cite a, blockquote cite a:visited, blockquote cite a:visited {
     border-radius: 0px 10px 0px 10px;
     margin: 0px;
 	margin-bottom:15px;
-	
+
 }
 .blog-wrapper .comment-content .comments-form-wrapper h3 {
     background-color: #fddbe6;
@@ -954,7 +954,7 @@ blockquote cite a, blockquote cite a:visited, blockquote cite a:visited {
 	font-weight: 600;
 }
 .col-main {
-    display: inline-block;
+    display: block;
 /*        border: 1px solid rgba(0,0,0,.04);
 		    border: .0625rem solid rgba(0,0,0,.04);
     box-shadow: 0 0.1875rem 0.75rem -0.25rem rgba(0,0,0,.12);*/
@@ -988,7 +988,7 @@ blockquote cite a, blockquote cite a:visited, blockquote cite a:visited {
 width:250px;
 }
 .blog-wrapper h2 {
-     margin-top:0px; 
+     margin-top:0px;
 }
 .blog_entry footer {
 	padding-top: 0px;
@@ -1008,7 +1008,7 @@ width:250px;
 	    margin-bottom:0px;
 }
 .blog-wrapper h2 {
-     margin-top:0px; 
+     margin-top:0px;
 }
 	}
 	@media only screen and (min-width: 992px) and (max-width:1600px) {
@@ -1017,7 +1017,7 @@ width:250px;
 	    margin-bottom:0px;
 }
 .blog-wrapper h2 {
-     margin-top:0px; 
+     margin-top:0px;
 }
 	}
 .blog-wrapper .pager {
