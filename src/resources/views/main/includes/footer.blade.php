@@ -13,14 +13,15 @@
                             </div>
                         </div>
                         <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 links wrapper">
-                            <address>ThemesGround, 789 Main rd,<br> Anytown, CA 12345 USA<br></address>
+                            <address>No 586, 7th main,<br> 17th cross, opp metro homes,<br> Indiranagar 2nd stage,<br> Bangalore- 560038, Karnataka<br></address>
                         </div>
                         <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 links block links">
-                            <div class="phone-footer">+ 888 456-7890</div>
+                            <div class="phone-footer"><a
+                                href="tel:08042100333 ">08042100333</a></div>
                         </div>
                         <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 links block links">
                             <div class="email-footer"><a
-                                href="mailto:abc@example.com">altima@themesground.com</a></div>
+                                href="mailto:Sales@cotton-culture.com">Sales@cotton-culture.com</a></div>
                         </div>
 
                     </div>
